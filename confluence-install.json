@@ -1,4 +1,7 @@
 {
+  "variables": {
+    "confpass": ""
+  },
   "builders": [{
     "type": "amazon-ebs",
     "region": "ap-southeast-2",
@@ -13,6 +16,7 @@
     },
     "instance_type": "t2.medium",
     "ssh_username": "ec2-user",
+    "associate_public_ip_address": "false",
     "ami_name": "Confluence and mysql image {{timestamp}}"
   }],
   "provisioners": [{
@@ -21,6 +25,9 @@
     "destination": "/tmp/my.cnf"
   },{
     "type": "shell",
+    "environment_vars": [
+      "PASSWORD={{user `confpass`}}"
+    ],
     "script": "scripts/lamp-install.sh"
   },{
     "type": "shell",
