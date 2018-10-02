@@ -1,4 +1,5 @@
 run packer with the below command:
-../packer build -var 'confpass=<enter pass>' confluence-install.json
+./(packer install location) build -var 'confpass=(password you want to use for the confluence db user)' confluence-install.json
 
-e.g. ../packer build -var 'confpass=password' confluence-install.json
+E.G. ../packer build -var 'confpass=enter-password' confluence-install.json
+
