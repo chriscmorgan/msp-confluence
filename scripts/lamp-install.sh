@@ -8,7 +8,7 @@ sudo chkconfig httpd on
 chkconfig -list httpd
 
 sudo mv /etc/my.cnf /etcmy.cnf.bak
-sudo cp ../files/my.cnf /etc/my.cnf
+sudo mv /tmp/my.cnf /etc/my.cnf
 
 sudo service mysqld start
 

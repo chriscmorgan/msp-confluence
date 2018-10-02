@@ -16,6 +16,10 @@
     "ami_name": "Confluence and mysql image {{timestamp}}"
   }],
   "provisioners": [{
+    "type": "file",
+    "source": "files/my.cnf",
+    "destination": "/tmp/my.cnf"
+  },{
     "type": "shell",
     "script": "scripts/lamp-install.sh"
   },{
