@@ -7,12 +7,14 @@ else
   CONF_PASS="${PASSWORD}"
 fi
 
+sudo mv /etc/sysconfig/clock /etc/sysconfig/clock.bck
+sudo mv /tmp/clock /etc/sysconfig/clock
+sudo ln -sf /usr/share/zoneinfo/Australia/Victoria /etc/localtime
+
 sudo yum update -y
-sudo yum groupinstall -y 'Web Server' 'MySQL Database' 'PHP Support'
-sudo yum install -y httpd mysql56-server
-sudo service httpd start
-sudo chkconfig httpd on
-chkconfig -list httpd
+sudo yum groupinstall -y 'MySQL Database'
+sudo yum install -y mysql56-server
+
 
 sudo mv /etc/my.cnf /etcmy.cnf.bak
 sudo mv /tmp/my.cnf /etc/my.cnf
