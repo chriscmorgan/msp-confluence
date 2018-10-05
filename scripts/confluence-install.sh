@@ -18,7 +18,15 @@ sudo tar -zxvf mysql-connector-java-5.1.34.tar.gz
 sudo chown -R ec2-user:ec2-user mysql-connector-java-5.1.34
 cp mysql-connector-java-5.1.34/mysql-connector-java-5.1.34-bin.jar atlassian-confluence-6.12.0/lib
 
-/opt/atlassian-confluence-6.12.0/bin/start-confluence.sh
+sudo mv /opt/atlassian-confluence-6.12.0/conf/server.xml /opt/atlassian-confluence-6.12.0/conf/server.xml.bck
+sudo cp /tmp/server.xml /opt/atlassian-confluence-6.12.0/conf/server.xml
+
+sudo cp /tmp/conflunence /etc/init.d/confluence
+sudo chmod +e /etc/init.d/confluence
+sudo chown ec2-user:ec2-user /opt/data -R
+sudo chown ec2-user:ec2-user /opt/atlassian-confluence-6.12.0 -R
+
+sudo /etc/init.d/confluence start
 
 sudo rm -rf /opt/mysql-connector-java-5.1.34.tar.gz
 sudo rm -rf /opt/mysql-connector-java-5.1.34
