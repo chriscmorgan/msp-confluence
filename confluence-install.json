@@ -28,6 +28,21 @@
     "source": "files/clock",
     "destination": "/tmp/clock"
   },{ 
+  },{
+    "type": "file",
+    "source": "files/clock",
+    "destination": "/tmp/server.xml"
+  },{ 
+  },{
+    "type": "file",
+    "source": "files/clock",
+    "destination": "/tmp/backup-to-s3.sh"
+  },{ 
+      },{
+    "type": "file",
+    "source": "files/clock",
+    "destination": "/tmp/confluence"
+  },{ 
     "type": "shell",
     "environment_vars": [
       "PASSWORD={{user `confpass`}}"
