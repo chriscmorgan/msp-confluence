@@ -30,17 +30,17 @@
   },{ 
   },{
     "type": "file",
-    "source": "files/clock",
+    "source": "files/server.xml",
     "destination": "/tmp/server.xml"
   },{ 
   },{
     "type": "file",
-    "source": "files/clock",
+    "source": "files/backup-to-s3.sh",
     "destination": "/tmp/backup-to-s3.sh"
   },{ 
       },{
     "type": "file",
-    "source": "files/clock",
+    "source": "files/confluence",
     "destination": "/tmp/confluence"
   },{ 
     "type": "shell",
