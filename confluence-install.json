@@ -24,6 +24,10 @@
     "source": "files/my.cnf",
     "destination": "/tmp/my.cnf"
   },{
+    "type": "file",
+    "source": "files/clock",
+    "destination": "/tmp/clock"
+  },{ 
     "type": "shell",
     "environment_vars": [
       "PASSWORD={{user `confpass`}}"
