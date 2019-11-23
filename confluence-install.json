@@ -28,6 +28,10 @@
     "source": "files/confluence",
     "destination": "/tmp/confluence"
   },{ 
+    "type": "file",
+    "source": "files/server.xml",
+    "destination": "/tmp/server.xml"
+  },{ 
     "type": "shell",
     "script": "scripts/confluence-install.sh"
   }]

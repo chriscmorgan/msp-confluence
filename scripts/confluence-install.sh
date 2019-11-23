@@ -16,7 +16,7 @@ echo -e "\nconfluence.home=/opt/data"  >> /opt/atlassian-confluence-7.0.4/conflu
 sudo mv /opt/atlassian-confluence-7.0.4/conf/server.xml /opt/atlassian-confluence-7.0.4/conf/server.xml.bck
 sudo cp /tmp/server.xml /opt/atlassian-confluence-7.0.4/conf/server.xml
 
-sudo cp /tmp/conflunence /etc/init.d/confluence
+sudo cp /tmp/confluence /etc/init.d/confluence
 sudo chmod +e /etc/init.d/confluence
 sudo chown ec2-user:ec2-user /opt/data -R
 sudo chown ec2-user:ec2-user /opt/atlassian-confluence-7.0.4 -R
