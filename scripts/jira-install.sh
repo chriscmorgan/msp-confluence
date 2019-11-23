@@ -7,4 +7,3 @@ cd /opt
 
 sudo wget -O jira.tar.gz https://product-downloads.atlassian.com/software/jira/downloads/atlassian-jira-software-8.5.1.tar.gz
 sudo tar -zxvf jira.tar.gz
-sudo chown -R ec2-user:ec2-user atlassian-jira-software-8.5.1
