@@ -1,0 +1,30 @@
+{
+  "variables": {
+    "confpass": ""
+  },
+  "builders": [{
+    "type": "amazon-ebs",
+    "region": "ap-southeast-2",
+    "source_ami_filter": {
+      "filters": {
+      "virtualization-type": "hvm",
+      "name": "amzn-ami-hvm-*",
+      "root-device-type": "ebs"
+      },
+      "owners": ["137112412989"],
+      "most_recent": true
+    },
+    "instance_type": "t2.medium",
+    "ssh_username": "ec2-user",
+    "associate_public_ip_address": "false",
+    "ami_name": "Jira AMI {{timestamp}}"
+  }],
+  "provisioners": [{
+    "type": "file",
+    "source": "files/backup-to-s3.sh",
+    "destination": "/tmp/backup-to-s3.sh"
+  },{ 
+    "type": "shell",
+    "script": "scripts/jira-install.sh"
+  }]
+}
