@@ -1,0 +1,44 @@
+version: 2.0
+
+jobs:
+  packer:
+    docker:
+      - image: hashicorp/packer:latest
+    steps:
+      - checkout
+      - run: cd packer;packer validate confluence-install.json
+      - run: cd packer;packer build confluence-install.json
+
+  terraform:
+    docker:
+      - image: hashicorp/terraform:latest
+    working_directory: ~/exported-config
+    steps:
+      - attach_workspace:
+          at: ~/exported-config
+      - checkout
+      - run: mkdir -p cluster-config
+      - run: ls -la
+      - run:
+          command: |
+            cd infrastructure
+            terraform init
+            #terraform workspace select $CLUSTER_NAME
+            #terraform apply -var-file=vars.tfvars -var db_password=$DB_PASSWORD -var db_name=$DB_NAME -var db_username=$DB_USERNAME -var name=$CLUSTER_NAME -var domain=$CLUSTER_DOMAIN -var kubernetes_state_store=$STATE_STORE_LOCATION -auto-approve
+            #terraform output cluster-config > ../cluster-config/cluster.yaml
+            #cd ../cluster-config
+            #ls -la
+          no_output_timeout: 1200
+      - persist_to_workspace:
+          root: .
+          paths: cluster-config/cluster.yaml
+
+  
+workflows:
+  version: 2
+  create:
+    jobs:
+      - packer
+      - terraform:
+          requires:
+            - packer

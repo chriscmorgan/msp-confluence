@@ -17,38 +17,17 @@
     "instance_type": "t2.medium",
     "ssh_username": "ec2-user",
     "associate_public_ip_address": "false",
-    "ami_name": "Confluence and mysql image {{timestamp}}"
+    "ami_name": "Confluence AMI"
   }],
   "provisioners": [{
-    "type": "file",
-    "source": "files/my.cnf",
-    "destination": "/tmp/my.cnf"
-  },{
-    "type": "file",
-    "source": "files/clock",
-    "destination": "/tmp/clock"
-  },{ 
-  },{
-    "type": "file",
-    "source": "files/server.xml",
-    "destination": "/tmp/server.xml"
-  },{ 
-  },{
     "type": "file",
     "source": "files/backup-to-s3.sh",
     "destination": "/tmp/backup-to-s3.sh"
   },{ 
-      },{
     "type": "file",
     "source": "files/confluence",
     "destination": "/tmp/confluence"
   },{ 
-    "type": "shell",
-    "environment_vars": [
-      "PASSWORD={{user `confpass`}}"
-    ],
-    "script": "scripts/lamp-install.sh"
-  },{
     "type": "shell",
     "script": "scripts/confluence-install.sh"
   }]

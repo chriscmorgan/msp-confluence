@@ -7,7 +7,7 @@ sudo mkdir /opt/data
 sudo chown ec2-user:ec2-user /opt/data
 cd /opt
 
-sudo wget https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-6.12.0.tar.gz
+sudo wget https://product-downloads.atlassian.com/software/jira/downloads/atlassian-confluence-6.13.9.tar.gz
 sudo tar -zxvf atlassian-confluence-6.12.0.tar.gz
 sudo chown -R ec2-user:ec2-user atlassian-confluence-6.12.0
 
