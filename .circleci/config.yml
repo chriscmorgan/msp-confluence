@@ -6,8 +6,8 @@ jobs:
       - image: hashicorp/packer:latest
     steps:
       - checkout
-      - run: cd packer;packer validate confluence-install.json
-      - run: cd packer;packer build confluence-install.json
+      - run: packer validate confluence-install.json
+      - run: packer build confluence-install.json
 
   terraform:
     docker:
